@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>What We Do - Zenvest Financial Services LLP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body class="bg-white text-[#2D3073] font-sans">
+
+    <!-- Navbar with Logo -->
+    <nav class="sticky top-0 z-50 bg-[#2D3073] text-white w-full flex items-center justify-between px-6 h-16 shadow-md">
+        <!-- Logo Section -->
+        <div class="h-full bg-white flex items-center px-8 border border-[#2D3073]">
+            <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="h-12 w-auto">
+        </div>
+
+        <!-- Hamburger Button (Mobile) -->
+        <button id="menu-btn" class="block md:hidden">
+            <i class="fas fa-bars text-white text-2xl"></i>
+        </button>
+
+        <!-- Navbar Links (Desktop) -->
+        <div id="menu" class="hidden md:flex space-x-6 text-sm items-center relative">
+            <a href="index.html" class="hover:text-[#AEF2CC]">Home</a>
+            <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
+            <a href="what-we-do.html" class="text-[#AEF2CC]">What We Do</a>
+            <a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a>
+
+            <!-- Resources Dropdown (Desktop) -->
+            <div class="relative group">
+                <button class="hover:text-[#AEF2CC]">Resources</button>
+                <div
+                    class="absolute left-0 top-full mt-2 bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <a href="financial-calculators.html" class="block px-4 py-2 hover:bg-gray-100">Financial
+                        Calculators</a>
+                    <a href="investor-education.html" class="block px-4 py-2 hover:bg-gray-100">Investor Education</a>
+                </div>
+            </div>
+
+            <a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a>
+            <a href="#" class="hover:text-[#AEF2CC]">Contact Us</a>
+        </div>
+
+        <!-- Dropdown Menu (Mobile) -->
+        <div id="dropdown-menu" class="absolute top-16 left-0 w-full bg-[#2D3073] hidden md:hidden z-40">
+            <ul class="space-y-4 py-4 px-6 text-white">
+                <li><a href="index.html" class="hover:text-[#AEF2CC]">Home</a></li>
+                <li><a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a></li>
+                <li><a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a></li>
+                <li><a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a></li>
+
+                <!-- Mobile Resources Dropdown Toggle -->
+                <li>
+                    <button id="resources-toggle" class="w-full text-left hover:text-[#AEF2CC]">Resources</button>
+                    <ul id="mobile-resources" class="pl-4 mt-2 space-y-2 hidden">
+                        <li><a href="financial-calculators.html" class="block text-sm hover:text-[#AEF2CC]">Financial
+                                Calculators</a></li>
+                        <li><a href="investor-education.html" class="block text-sm hover:text-[#AEF2CC]">Investor
+                                Education</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a></li>
+                <li><a href="#" class="hover:text-[#AEF2CC]">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="max-w-7xl mx-auto px-6 py-12 space-y-16">
+
+
+        <!-- Wealth Management Services Hero Section -->
+        <section class="bg-gray-50 rounded-lg shadow-md p-8 md:p-12 mb-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-4xl font-bold text-[#2D3073] mb-4">
+                    Wealth Management Services
+                </h2>
+                <div class="w-16 h-1 bg-[#118C3C] mx-auto mb-6 rounded"></div>
+                <p class="text-base md:text-md mb-4">
+                    At Zenvest, we offer whole-of-market solutions tailored for individuals and companies. Our approach
+                    is independent,
+                    strategic, and built entirely around your financial goals.
+                </p>
+                <p class="text-base md:text-md mb-4">
+                    We take the time to understand your objectives and create a customized investment plan that aligns
+                    with your needs,
+                    time horizon, and attitude to risk.
+                </p>
+                <p class="text-base md:text-md">
+                    Think of us as your financial partner — committed to helping you grow and protect your wealth with a
+                    diverse range of
+                    thoughtfully selected investment products.
+                </p>
+            </div>
+        </section>
+
+
+
+        <!-- What We Do -->
+        <section>
+            <h1 class="text-4xl font-bold mb-8 border-b-2 pb-2 text-center">What We Do</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Card 1 -->
+                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-chart-line text-[#118C3C] text-3xl"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Risk Profiling</h3>
+                            <p class="text-md">We evaluate your financial goals, investment horizon, and tolerance to
+                                risk to build a foundation for informed investing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-pie-chart text-[#118C3C] text-3xl"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Asset Allocation</h3>
+                            <p class="text-md">A strategic mix of equity, debt, and alternatives tailored to your
+                                financial plan and risk appetite.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-tags text-[#118C3C] text-3xl"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Product Selection</h3>
+                            <p class="text-md">We shortlist and suggest the most suitable financial instruments aligned
+                                with your investment strategy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-rotate text-[#118C3C] text-3xl"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Review</h3>
+                            <p class="text-md">Periodic performance evaluation and strategy recalibration to ensure
+                                long-term alignment and optimization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Offer -->
+        <section>
+            <h2 class="text-3xl font-bold mb-8 border-b-2 pb-2 text-center">What We Offer</h2>
+            <div class="grid md:grid-cols-4 gap-6 text-center text-md">
+
+                <!-- Mutual Funds -->
+                <div class="border rounded-lg p-5 shadow hover:shadow-lg transition">
+                    <i class="fa-solid fa-coins text-[#167336] text-3xl mb-2"></i>
+                    <h4 class="font-semibold text-lg mb-1">Mutual Funds</h4>
+                    <p>Diversified and regulated investment options tailored for various financial goals.</p>
+                </div>
+
+                <!-- PMS -->
+                <div class="border rounded-lg p-5 shadow hover:shadow-lg transition">
+                    <i class="fa-solid fa-briefcase text-[#167336] text-3xl mb-2"></i>
+                    <h4 class="font-semibold text-lg mb-1">PMS</h4>
+                    <p>Personalized, actively managed investment portfolios for HNI clients.</p>
+                </div>
+
+                <!-- AIFs -->
+                <div class="border rounded-lg p-5 shadow hover:shadow-lg transition">
+                    <i class="fa-solid fa-vault text-[#167336] text-3xl mb-2"></i>
+                    <h4 class="font-semibold text-lg mb-1">AIFs</h4>
+                    <p>Alternative investment opportunities for higher returns with strategic exposure.</p>
+                </div>
+
+                <!-- Corporate FD -->
+                <div class="border rounded-lg p-5 shadow hover:shadow-lg transition">
+                    <i class="fa-solid fa-building-columns text-[#167336] text-3xl mb-2"></i>
+                    <h4 class="font-semibold text-lg mb-1">Corporate FDs</h4>
+                    <p>Fixed deposits with reputed corporations offering attractive returns.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#2D3073] text-white text-xs md:text-sm px-6 py-8 mt-16">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <p>
+                <strong>Risk Factors:</strong> Investments in mutual funds are subject to market risks. Read all
+                scheme-related documents carefully before investing.
+                Mutual fund schemes do not assure or guarantee any returns. Past performances may or may not be
+                sustained in the future. There is no guarantee that the investment objective of any suggested scheme
+                shall be achieved.
+                All existing and prospective investors are advised to evaluate the exit loads and cost structures (TER)
+                applicable at the time of investment.
+                We deal in regular plans only and earn a trailing commission, disclosed at the time of investment.
+                Direct plans with lower expense ratios are available but we do not deal in them.
+            </p>
+
+            <p>
+                <strong>AMFI Registered Mutual Fund Distributor</strong> | ARN-192670 | Validity: 04.04.2026
+            </p>
+
+            <p>
+                For inquiries or complaints, please email us at <a href="mailto:support@zenvest.com"
+                    class="underline hover:text-[#AEF2CC]">support@zenvest.com</a>
+            </p>
+
+            <p class="text-center text-gray-300 text-xs pt-4 border-t border-[#AEF2CC]">
+                &copy; 2025 Zenvest Financial Services LLP. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Script to toggle mobile dropdown menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const resourcesToggle = document.getElementById('resources-toggle');
+        const mobileResources = document.getElementById('mobile-resources');
+
+        // Toggle entire mobile menu
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Toggle mobile Resources submenu
+        resourcesToggle.addEventListener('click', () => {
+            mobileResources.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>

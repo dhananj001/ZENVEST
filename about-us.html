@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Zenvest Financial Services LLP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="bg-white text-[#2D3073] font-sans">
+
+    <!-- Navbar with Logo -->
+    <nav class="sticky top-0 z-50 bg-[#2D3073] text-white w-full flex items-center justify-between px-6 h-16 shadow-md">
+        <!-- Logo Section -->
+        <div class="h-full bg-white flex items-center px-8 border border-[#2D3073]">
+            <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="h-12 w-auto">
+        </div>
+
+        <!-- Hamburger Button (Mobile) -->
+        <button id="menu-btn" class="block md:hidden">
+            <i class="fas fa-bars text-white text-2xl"></i>
+        </button>
+
+        <!-- Navbar Links (Desktop) -->
+        <div id="menu" class="hidden md:flex space-x-6 text-sm items-center relative">
+            <a href="index.html" class="hover:text-[#AEF2CC]">Home</a>
+            <a href="about-us.html" class="text-[#AEF2CC] hover:underline">About Us</a>
+            <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
+            <a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a>
+
+            <!-- Resources Dropdown (Desktop) -->
+            <div class="relative group">
+                <button class="hover:text-[#AEF2CC]">Resources</button>
+                <div
+                    class="absolute left-0 top-full mt-2 bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <a href="financial-calculators.html" class="block px-4 py-2 hover:bg-gray-100">Financial
+                        Calculators</a>
+                    <a href="investor-education.html" class="block px-4 py-2 hover:bg-gray-100">Investor Education</a>
+                </div>
+            </div>
+
+            <a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a>
+            <a href="#" class="hover:text-[#AEF2CC]">Contact Us</a>
+        </div>
+
+        <!-- Dropdown Menu (Mobile) -->
+        <div id="dropdown-menu" class="absolute top-16 left-0 w-full bg-[#2D3073] hidden md:hidden z-40">
+            <ul class="space-y-4 py-4 px-6 text-white">
+                <li><a href="index.html" class="hover:text-[#AEF2CC]">Home</a></li>
+                <li><a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a></li>
+                <li><a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a></li>
+                <li><a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a></li>
+
+                <!-- Mobile Resources Dropdown Toggle -->
+                <li>
+                    <button id="resources-toggle" class="w-full text-left hover:text-[#AEF2CC]">Resources</button>
+                    <ul id="mobile-resources" class="pl-4 mt-2 space-y-2 hidden">
+                        <li><a href="financial-calculators.html" class="block text-sm hover:text-[#AEF2CC]">Financial
+                                Calculators</a></li>
+                        <li><a href="investor-education.html" class="block text-sm hover:text-[#AEF2CC]">Investor
+                                Education</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a></li>
+                <li><a href="#" class="hover:text-[#AEF2CC]">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+        <h1 class="text-4xl font-bold mb-12 border-b-2 border-[#AEF2CC] pb-4">About Us</h1>
+
+        <div class="grid md:grid-cols-2 gap-12">
+
+            <!-- About Zenvest Section -->
+            <div class="space-y-6">
+                <p class="text-base leading-relaxed">
+                    At <strong>Zenvest Financial Services LLP</strong>, we are driven by our commitment to putting
+                    <strong>Clients First, </strong>always. Our values are built on <strong>integrity, confidentiality,
+                        and transparency</strong>. We deliver ethical financial services through holistic planning and
+                    advice that’s unbiased and free from conflicts of interest.
+                </p>
+
+                <h2 class="text-xl font-semibold text-[#118C3C]">Our Core Expertise</h2>
+                <ul class="grid gap-4 text-sm pl-5 list-disc list-inside">
+                    <li><strong>Investment Management:</strong> Customized and diversified portfolios aligned to your
+                        goals.</li>
+                    <li><strong>Financial Planning:</strong> Personalized strategies for retirement, education, and life
+                        goals.</li>
+                    <li><strong>Tax Optimization:</strong> Enhancing post-tax returns and minimizing liabilities.</li>
+                    <li><strong>Estate & Legacy Planning:</strong> Efficient transfer of wealth aligned with family
+                        values.</li>
+                    <li><strong>Risk Management:</strong> Identifying and mitigating financial risks through insurance
+                        and protection tools.</li>
+                </ul>
+
+                <p class="text-base leading-relaxed">
+                    Our mission is to offer <strong>client-centric financial solutions</strong> that help build,
+                    preserve, and transfer wealth for future generations. Our holistic approach provides financial
+                    confidence and long-term security.
+                </p>
+            </div>
+
+            <!-- About Neha Section - Card Layout -->
+            <div class="bg-[#F2F2F2] p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center gap-6">
+                
+                <!-- Neha's Image & LinkedIn -->
+                <div class="w-full md:w-1/3 flex flex-col items-start">
+                    <img src="assets/images/Nehasinha004.jpg" alt="Neha Smriti Sinha"
+                        class="w-full rounded-lg object-cover shadow mb-3">
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/neha-sinha-72026724?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"
+                        class="text-[#2D3073] text-sm flex items-center hover:text-[#118C3C] transition">
+                        <i class="fab fa-linkedin mr-2"></i> Know More on LinkedIn
+                    </a>
+                </div>
+
+                <!-- Neha's Bio -->
+                <div class="w-full md:w-2/3 text-sm leading-relaxed space-y-4">
+                    <!-- <h2 class="text-xl font-semibold text-[#2D3073]">About Neha Smriti Sinha</h2> -->
+                    <p>
+                        <strong>Neha Smriti Sinha</strong> is a founder of Zenvest Financial Services LLP. She come with rich experience of 
+                        <strong>17+ years</strong> in the wealth management space.
+                    </p>
+                    <p>
+                        She has worked for some of esteemed firm like <strong>HDFC Bank</strong>, <strong>Kotak Mahindra Bank</strong>, and <strong>360 One
+                            Wealth Management</strong>.
+                    </p>
+                    <p>
+                        With a disciplined approach and a deep understanding of <strong>financial markets</strong>, she helps in bringing customised solutions for clients.
+                    </p>    
+                    <p>
+                        She holds <strong>MBA degree</strong> and has an immense interest in reading and long distance running.                    </p>    
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#2D3073] text-white text-xs md:text-sm px-6 py-8 mt-16">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <p>
+                <strong>Risk Factors:</strong> Investments in mutual funds are subject to market risks. Read all
+                scheme-related documents carefully before investing.
+                Mutual fund schemes do not assure or guarantee any returns. Past performances may or may not be
+                sustained in the future. There is no guarantee that the investment objective of any suggested scheme
+                shall be achieved.
+                All existing and prospective investors are advised to evaluate the exit loads and cost structures (TER)
+                applicable at the time of investment.
+                We deal in regular plans only and earn a trailing commission, disclosed at the time of investment.
+                Direct plans with lower expense ratios are available but we do not deal in them.
+            </p>
+
+            <p>
+                <strong>AMFI Registered Mutual Fund Distributor</strong> | ARN-192670 | Validity: 04.04.2026
+            </p>
+
+            <p>
+                For inquiries or complaints, please email us at <a href="mailto:support@zenvest.com"
+                    class="underline hover:text-[#AEF2CC]">support@zenvest.com</a>
+            </p>
+
+            <p class="text-center text-gray-300 text-xs pt-4 border-t border-[#AEF2CC]">
+                &copy; 2025 Zenvest Financial Services LLP. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Script to toggle mobile dropdown menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const resourcesToggle = document.getElementById('resources-toggle');
+        const mobileResources = document.getElementById('mobile-resources');
+
+        // Toggle entire mobile menu
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Toggle mobile Resources submenu
+        resourcesToggle.addEventListener('click', () => {
+            mobileResources.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>

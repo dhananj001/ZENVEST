@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>What We Do - Zenvest Financial Services LLP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body class="bg-white text-[#2D3073] font-sans">
+
+    <!-- Navbar with Logo -->
+    <nav class="sticky top-0 z-50 bg-[#2D3073] text-white w-full flex items-center justify-between px-6 h-16 shadow-md">
+        <!-- Logo Section -->
+        <div class="h-full bg-white flex items-center px-8 border border-[#2D3073]">
+            <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="h-12 w-auto">
+        </div>
+
+        <!-- Hamburger Button (Mobile) -->
+        <button id="menu-btn" class="block md:hidden">
+            <i class="fas fa-bars text-white text-2xl"></i>
+        </button>
+
+        <!-- Navbar Links (Desktop) -->
+        <div id="menu" class="hidden md:flex space-x-6 text-sm items-center relative">
+            <a href="index.html" class="hover:text-[#AEF2CC]">Home</a>
+            <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
+            <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
+            <a href="kyc.html" class="text-[#AEF2CC]">KYC</a>
+
+            <!-- Resources Dropdown (Desktop) -->
+            <div class="relative group">
+                <button class="hover:text-[#AEF2CC]">Resources</button>
+                <div
+                    class="absolute left-0 top-full mt-2 bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <a href="financial-calculators.html" class="block px-4 py-2 hover:bg-gray-100">Financial
+                        Calculators</a>
+                    <a href="investor-education.html" class="block px-4 py-2 hover:bg-gray-100">Investor Education</a>
+                </div>
+            </div>
+
+            <a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a>
+            <a href="#" class="hover:text-[#AEF2CC]">Contact Us</a>
+        </div>
+
+        <!-- Dropdown Menu (Mobile) -->
+        <div id="dropdown-menu" class="absolute top-16 left-0 w-full bg-[#2D3073] hidden md:hidden z-40">
+            <ul class="space-y-4 py-4 px-6 text-white">
+                <li><a href="index.html" class="hover:text-[#AEF2CC]">Home</a></li>
+                <li><a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a></li>
+                <li><a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a></li>
+                <li><a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a></li>
+
+                <!-- Mobile Resources Dropdown Toggle -->
+                <li>
+                    <button id="resources-toggle" class="w-full text-left hover:text-[#AEF2CC]">Resources</button>
+                    <ul id="mobile-resources" class="pl-4 mt-2 space-y-2 hidden">
+                        <li><a href="financial-calculators.html" class="block text-sm hover:text-[#AEF2CC]">Financial
+                                Calculators</a></li>
+                        <li><a href="investor-education.html" class="block text-sm hover:text-[#AEF2CC]">Investor
+                                Education</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a></li>
+                <li><a href="#" class="hover:text-[#AEF2CC]">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Compact Disclaimer Banner -->
+    <div
+        class="bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs rounded px-4 py-2 max-w-7xl mx-auto mt-4 flex items-start gap-2">
+        <i class="fa-solid fa-circle-exclamation mt-0.5 text-yellow-600 text-sm"></i>
+        <p class="leading-snug">
+            To comply with the <strong>Prevention of Money Laundering Act, 2002</strong> (SEBI/Govt. of India), all Unit
+            Holders—including Guardians and POA holders—must complete <strong>KYC / AADHAAR / FATCA</strong> formalities
+            for mutual fund investments.
+        </p>
+    </div>
+
+
+
+    <!-- Main Section -->
+    <div class="max-w-7xl mx-auto px-6 py-7 space-y-16">
+
+        <!-- KYC -->
+        <section>
+            <h1 class="text-4xl font-bold mb-8 border-b-2 pb-2">KYC</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Check Your KYC Status -->
+                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-check-circle text-[#118C3C] text-3xl"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Check Your KYC Status</h3>
+                            <p class="text-sm">Verify your KYC status with the following KYC Registration Agencies:</p>
+                            <ul class="list-disc pl-6 text-sm mt-2 space-y-1">
+                                <li><a href="https://www.cvlkra.com/" class="text-[#118C3C] hover:underline">CVLKRA</a>
+                                </li>
+                                <li><a href="https://kra.ndml.in/kra-web/jsps/pos/KYCClientInquiry_NEW.jsp"
+                                        class="text-[#118C3C] hover:underline">NSDL KRA</a></li>
+                                <li><a href="https://www.camskra.com/" class="text-[#118C3C] hover:underline">CAMS
+                                        KRA</a></li>
+                                <li><a href="https://www.nsekra.com/" class="text-[#118C3C] hover:underline">NSE KRA</a>
+                                </li>
+                                <li><a href="https://www.karvykra.com/index.aspx?ReturnUrl=%2f"
+                                        class="text-[#118C3C] hover:underline">KARVY KRA</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Validate Your KYC -->
+                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-id-card text-[#118C3C] text-3xl"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Validate Your KYC</h3>
+                            <p class="text-sm">Initiate or validate your KYC process with the following KYC Registration
+                                Agencies:</p>
+                            <ul class="list-disc pl-6 text-sm mt-2 space-y-1">
+                                <li><a href="https://validate.cvlindia.com/CVLKRAVerification_V1/"
+                                        class="text-[#118C3C] hover:underline">CVLKRA</a></li>
+                                <li><a href="https://kra.ndml.in/ClientInitiatedKYC-webApp/#/ClientinitiatedKYC"
+                                        class="text-[#118C3C] hover:underline">NSDL KRA</a></li>
+                                <li><a href="https://www.camskra.com/PanDetailsUpdate.aspx  "
+                                        class="text-[#118C3C] hover:underline">CAMS KRA</a></li>
+                                <li><a href="https://www.karvykra.com/KYC_Validation/Default.aspx"
+                                        class="text-[#118C3C] hover:underline">KARVY KRA</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Download KYC Forms -->
+        <section>
+            <h2 class="text-3xl font-bold mb-8 border-b-2 pb-2">Download KYC Forms</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- CAMS KRA Form -->
+                <div
+                    class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition h-full flex flex-col">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-download text-[#118C3C] text-3xl"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">CAMS KRA Form</h3>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><a href="https://resources.investwellonline.com/forms/CAMSKRA_Non_Individual.pdf"
+                                        class="text-[#118C3C] hover:underline inline-block">KYC Non-Individual</a></li>
+                                <li><a href="https://resources.investwellonline.com/forms/Individual_KYC.pdf"
+                                        class="text-[#118C3C] hover:underline inline-block">KYC Individual</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KFINTECH Form -->
+                <div
+                    class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition h-full flex flex-col">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-download text-[#118C3C] text-3xl"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">KFINTECH Form</h3>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><a href="https://resources.investwellonline.com/forms/KFINTECH_FATCA_CRS_Declaration_form_Individual.pdf"
+                                        class="text-[#118C3C] hover:underline inline-block">FATCA CRS Declaration
+                                        (Individual)</a></li>
+                                <li><a href="https://resources.investwellonline.com/forms/KFINTECH_FATCA_UBO_NON_INDIVIDUALS.pdf"
+                                        class="text-[#118C3C] hover:underline inline-block">FATCA UBO
+                                        (Non-Individual)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAMS Form -->
+                <div
+                    class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition h-full flex flex-col">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-download text-[#118C3C] text-3xl"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">CAMS Form</h3>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><a href="https://resources.investwellonline.com/forms/CAMS_FATCA_Non_Individual.pdf"
+                                        class="text-[#118C3C] hover:underline inline-block">FATCA (Non-Individual)</a>
+                                </li>
+                                <li><a href="https://resources.investwellonline.com/forms/CAMS_FATCA-Individuals.pdf"
+                                        class="text-[#118C3C] hover:underline inline-block">FATCA (Individual)</a></li>
+                                <li><a href="https://resources.investwellonline.com/forms/CAMS_UBO_Declaration_Non_Indvidual.pdf"
+                                        class="text-[#118C3C] hover:underline inline-block">UBO Declaration
+                                        (Non-Individual)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#2D3073] text-white text-xs md:text-sm px-6 py-8 mt-16">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <p>
+                <strong>Risk Factors:</strong> Investments in mutual funds are subject to market risks. Read all
+                scheme-related documents carefully before investing.
+                Mutual fund schemes do not assure or guarantee any returns. Past performances may or may not be
+                sustained in the future. There is no guarantee that the investment objective of any suggested scheme
+                shall be achieved.
+                All existing and prospective investors are advised to evaluate the exit loads and cost structures (TER)
+                applicable at the time of investment.
+                We deal in regular plans only and earn a trailing commission, disclosed at the time of investment.
+                Direct plans with lower expense ratios are available but we do not deal in them.
+            </p>
+
+            <p>
+                <strong>AMFI Registered Mutual Fund Distributor</strong> | ARN-192670 | Validity: 04.04.2026
+            </p>
+
+            <p>
+                For inquiries or complaints, please email us at <a href="mailto:support@zenvest.com"
+                    class="underline hover:text-[#AEF2CC]">support@zenvest.com</a>
+            </p>
+
+            <p class="text-center text-gray-300 text-xs pt-4 border-t border-[#AEF2CC]">
+                &copy; 2025 Zenvest Financial Services LLP. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Script to toggle mobile dropdown menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const resourcesToggle = document.getElementById('resources-toggle');
+        const mobileResources = document.getElementById('mobile-resources');
+    
+        // Toggle entire mobile menu
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+    
+        // Toggle mobile Resources submenu
+        resourcesToggle.addEventListener('click', () => {
+            mobileResources.classList.toggle('hidden');
+        });
+    </script>
+    
+</body>
+
+</html>

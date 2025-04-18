@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Investor Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body class="bg-white text-[#2D3073] font-sans">
+
+    <!-- Navbar with Logo -->
+    <nav class="sticky top-0 z-50 bg-[#2D3073] text-white w-full flex items-center justify-between px-6 h-16 shadow-md">
+        <!-- Logo Section -->
+        <div class="h-full bg-white flex items-center px-8 border border-[#2D3073]">
+            <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="h-12 w-auto">
+        </div>
+
+        <!-- Hamburger Button (Mobile) -->
+        <button id="menu-btn" class="block md:hidden">
+            <i class="fas fa-bars text-white text-2xl"></i>
+        </button>
+
+        <!-- Navbar Links (Desktop) -->
+        <div id="menu" class="hidden md:flex space-x-6 text-sm items-center relative">
+            <a href="index.html" class="hover:text-[#AEF2CC]">Home</a>
+            <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
+            <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
+            <a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a>
+
+            <!-- Resources Dropdown (Desktop) -->
+            <div class="relative group">
+                <button class="text-[#AEF2CC]">Resources</button>
+                <div
+                    class="absolute left-0 top-full mt-2 bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <a href="financial-calculators.html" class="block px-4 py-2 hover:bg-gray-100">Financial
+                        Calculators</a>
+                    <a href="investor-education.html" class="block px-4 py-2 hover:bg-gray-100">Investor Education</a>
+                </div>
+            </div>
+
+            <a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a>
+            <a href="#" class="hover:text-[#AEF2CC]">Contact Us</a>
+        </div>
+
+        <!-- Dropdown Menu (Mobile) -->
+        <div id="dropdown-menu" class="absolute top-16 left-0 w-full bg-[#2D3073] hidden md:hidden z-40">
+            <ul class="space-y-4 py-4 px-6 text-white">
+                <li><a href="index.html" class="hover:text-[#AEF2CC]">Home</a></li>
+                <li><a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a></li>
+                <li><a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a></li>
+                <li><a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a></li>
+
+                <!-- Mobile Resources Dropdown Toggle -->
+                <li>
+                    <button id="resources-toggle" class="w-full text-left hover:text-[#AEF2CC]">Resources</button>
+                    <ul id="mobile-resources" class="pl-4 mt-2 space-y-2 hidden">
+                        <li><a href="financial-calculators.html" class="block text-sm hover:text-[#AEF2CC]">Financial
+                                Calculators</a></li>
+                        <li><a href="investor-education.html" class="block text-sm hover:text-[#AEF2CC]">Investor
+                                Education</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a></li>
+                <li><a href="#" class="hover:text-[#AEF2CC]">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Main Section -->
+    <main class="max-w-7xl mx-auto px-6 py-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#2D3073] mb-10">Investor Education Videos</h2>
+
+        <div class="flex flex-col md:flex-row gap-6">
+            <!-- Main Video -->
+            <div class="flex-1 bg-white rounded-lg shadow-lg overflow-hidden">
+                <iframe id="video-player" class="w-full h-[300px] md:h-[500px]"
+                    src="https://www.youtube.com/embed/nke3160rCas?si=-s1CnG3l-v_B6SHG" allowfullscreen></iframe>
+            </div>
+
+            <!-- Video List -->
+            <div class="w-full md:w-[30%] space-y-4 max-h-[500px] overflow-y-auto custom-scrollbar">
+                <div class="video-item flex items-center gap-4 p-2 m-4 bg-white rounded-md shadow-md cursor-pointer ring-2 ring-[#2D3073] bg-[#E6F6EE]"
+                    data-video="https://www.youtube.com/embed/nke3160rCas?si=-s1CnG3l-v_B6SHG">
+                    <img src="https://img.youtube.com/vi/nke3160rCas/mqdefault.jpg"
+                        class="w-24 h-16 object-cover rounded" alt="Thumbnail">
+                    <p class="font-semibold text-sm">What is an ELSS? | The Smart Way to Save Taxes and Invest</p>
+                </div>
+                <div class="video-item flex items-center gap-4 p-2 m-4 bg-white rounded-md shadow-md cursor-pointer"
+                    data-video="https://www.youtube.com/embed/QISY70zukng?si=mZ-jty79aDGiPnc8">
+                    <img src="https://img.youtube.com/vi/QISY70zukng/mqdefault.jpg"
+                        class="w-24 h-16 object-cover rounded" alt="Thumbnail">
+                    <p class="font-semibold text-sm">Risk ko soch samjh kar invest karna sahi hai | Mutual Funds
+                        Sahi
+                        Hai</p>
+                </div>
+                <div class="video-item flex items-center gap-4 p-2 m-4 bg-white rounded-md shadow-md cursor-pointer"
+                    data-video="https://www.youtube.com/embed/5ThhgoWFHyc?si=6tNsiFDM1N--aHiB">
+                    <img src="https://img.youtube.com/vi/5ThhgoWFHyc/mqdefault.jpg"
+                        class="w-24 h-16 object-cover rounded" alt="Thumbnail">
+                    <p class="font-semibold text-sm">Mutual Funds can give better results by the virtue of patience
+                    </p>
+                </div>
+                <div class="video-item flex items-center gap-4 p-2 m-4 bg-white rounded-md shadow-md cursor-pointer"
+                    data-video="https://www.youtube.com/embed/deaU-eVM5xs?si=s0XPXzOFFHYfjNDK">
+                    <img src="https://img.youtube.com/vi/deaU-eVM5xs/mqdefault.jpg"
+                        class="w-24 h-16 object-cover rounded" alt="Thumbnail">
+                    <p class="font-semibold text-sm">Mutual Fund & the Benefits of Investing in Mutual Fund</p>
+                </div>
+                <div class="video-item flex items-center gap-4 p-2 m-4 bg-white rounded-md shadow-md cursor-pointer"
+                    data-video="https://www.youtube.com/embed/PmEhyAWcSz0?si=qKk4251yDOtVnVET">
+                    <img src="https://img.youtube.com/vi/PmEhyAWcSz0/mqdefault.jpg"
+                        class="w-24 h-16 object-cover rounded" alt="Thumbnail">
+                    <p class="font-semibold text-sm">Options in Mutual Funds are as diverse as your music playlist.
+                    </p>
+                </div>
+                <div class="video-item flex items-center gap-4 p-2 m-4 bg-white rounded-md shadow-md cursor-pointer"
+                    data-video="https://www.youtube.com/embed/v8WKrBjC1dc?si=Z1m3b9KQr21yZI_j">
+                    <img src="https://img.youtube.com/vi/v8WKrBjC1dc/mqdefault.jpg"
+                        class="w-24 h-16 object-cover rounded" alt="Thumbnail">
+                    <p class="font-semibold text-sm">Risk Ki Tayyari</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        const videoItems = document.querySelectorAll('.video-item');
+        const videoPlayer = document.getElementById('video-player');
+
+        videoItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all items
+                videoItems.forEach(i => i.classList.remove('ring-2', 'ring-[#2D3073]', 'bg-[#E6F6EE]'));
+
+                // Add active styles to clicked item
+                item.classList.add('ring-2', 'ring-[#2D3073]', 'bg-[#E6F6EE]');
+
+                // Change video source
+                const videoURL = item.getAttribute('data-video');
+                videoPlayer.src = videoURL;
+            });
+        });
+    </script>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-[#2D3073] text-white text-xs md:text-sm px-6 py-8 mt-16">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <p>
+                <strong>Risk Factors:</strong> Investments in mutual funds are subject to market risks. Read all
+                scheme-related documents carefully before investing.
+                Mutual fund schemes do not assure or guarantee any returns. Past performances may or may not be
+                sustained in the future. There is no guarantee that the investment objective of any suggested scheme
+                shall be achieved.
+                All existing and prospective investors are advised to evaluate the exit loads and cost structures (TER)
+                applicable at the time of investment.
+                We deal in regular plans only and earn a trailing commission, disclosed at the time of investment.
+                Direct plans with lower expense ratios are available but we do not deal in them.
+            </p>
+
+            <p>
+                <strong>AMFI Registered Mutual Fund Distributor</strong> | ARN-192670 | Validity: 04.04.2026
+            </p>
+
+            <p>
+                For inquiries or complaints, please email us at <a href="mailto:support@zenvest.com"
+                    class="underline hover:text-[#AEF2CC]">support@zenvest.com</a>
+            </p>
+
+            <p class="text-center text-gray-300 text-xs pt-4 border-t border-[#AEF2CC]">
+                &copy; 2025 Zenvest Financial Services LLP. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Script to toggle mobile dropdown menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const resourcesToggle = document.getElementById('resources-toggle');
+        const mobileResources = document.getElementById('mobile-resources');
+
+        // Toggle entire mobile menu
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Toggle mobile Resources submenu
+        resourcesToggle.addEventListener('click', () => {
+            mobileResources.classList.toggle('hidden');
+        });
+    </script>
+
+
+</body>
+
+</html>

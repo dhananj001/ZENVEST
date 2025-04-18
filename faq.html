@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>FAQ's</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body class="bg-white text-[#2D3073] font-sans">
+
+    <!-- Navbar with Logo -->
+    <nav class="sticky top-0 z-50 bg-[#2D3073] text-white w-full flex items-center justify-between px-6 h-16 shadow-md">
+        <!-- Logo Section -->
+        <div class="h-full bg-white flex items-center px-8 border border-[#2D3073]">
+            <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="h-12 w-auto">
+        </div>
+
+        <!-- Hamburger Button (Mobile) -->
+        <button id="menu-btn" class="block md:hidden">
+            <i class="fas fa-bars text-white text-2xl"></i>
+        </button>
+
+        <!-- Navbar Links (Desktop) -->
+        <div id="menu" class="hidden md:flex space-x-6 text-sm items-center relative">
+            <a href="index.html" class="hover:text-[#AEF2CC]">Home</a>
+            <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
+            <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
+            <a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a>
+
+            <!-- Resources Dropdown (Desktop) -->
+            <div class="relative group">
+                <button class="hover:text-[#AEF2CC]">Resources</button>
+                <div
+                    class="absolute left-0 top-full mt-2 bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <a href="financial-calculators.html" class="block px-4 py-2 hover:bg-gray-100">Financial
+                        Calculators</a>
+                    <a href="investor-education.html" class="block px-4 py-2 hover:bg-gray-100">Investor Education</a>
+                </div>
+            </div>
+
+            <a href="faq.html" class="text-[#AEF2CC]">FAQ Page</a>
+            <a href="#" class="hover:text-[#AEF2CC]">Contact Us</a>
+        </div>
+
+        <!-- Dropdown Menu (Mobile) -->
+        <div id="dropdown-menu" class="absolute top-16 left-0 w-full bg-[#2D3073] hidden md:hidden z-40">
+            <ul class="space-y-4 py-4 px-6 text-white">
+                <li><a href="index.html" class="hover:text-[#AEF2CC]">Home</a></li>
+                <li><a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a></li>
+                <li><a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a></li>
+                <li><a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a></li>
+
+                <!-- Mobile Resources Dropdown Toggle -->
+                <li>
+                    <button id="resources-toggle" class="w-full text-left hover:text-[#AEF2CC]">Resources</button>
+                    <ul id="mobile-resources" class="pl-4 mt-2 space-y-2 hidden">
+                        <li><a href="financial-calculators.html" class="block text-sm hover:text-[#AEF2CC]">Financial
+                                Calculators</a></li>
+                        <li><a href="investor-education.html" class="block text-sm hover:text-[#AEF2CC]">Investor
+                                Education</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a></li>
+                <li><a href="#" class="hover:text-[#AEF2CC]">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Main Section -->
+    <!-- FAQ Section -->
+    <!-- FAQ Section -->
+    <section id="FAQ" class="py-24 bg-zenvest-bg relative scroll-mt-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-zenvest-blue mb-16 text-center">Frequently Asked
+                Questions</h2>
+            <div class="max-w-6xl mx-auto space-y-6">
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-zenvest-blue">How does Zenvest create a financial plan?
+                        </h3>
+                        <svg class="w-6 h-6 text-zenvest-blue transform transition-transform" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6H6z" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>We start with a detailed consultation to understand your goals, risk profile, and financial
+                            situation. Our advisors then craft a personalized plan, incorporating investments, tax
+                            strategies, and more.</p>
+                    </div>
+                </div>
+                <!-- <div class="faq-item bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-zenvest-blue">What are the fees for your services?</h3>
+                        <svg class="w-6 h-6 text-zenvest-blue transform transition-transform" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6H6z" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Our fees vary based on the complexity of your financial plan. We offer a transparent fee
+                            structure, which we’ll discuss during your free consultation.</p>
+                    </div>
+                </div> -->
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-zenvest-blue">How can I start investing with Zenvest?</h3>
+                        <svg class="w-6 h-6 text-zenvest-blue transform transition-transform" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6H6z" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Simply schedule a consultation with us! We’ll assess your goals and recommend the best
+                            investment options, such as SIPs, mutual funds, or other instruments.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-zenvest-blue">Is my money safe with Zenvest?</h3>
+                        <svg class="w-6 h-6 text-zenvest-blue transform transition-transform" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6H6z" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Yes, your investments are made through SEBI-registered platforms. We never take custody of
+                            your money — it's always under your control.</p>
+                    </div>
+                </div>
+
+                <!-- <div class="faq-item bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-zenvest-blue">Do you help with tax saving?</h3>
+                        <svg class="w-6 h-6 text-zenvest-blue transform transition-transform" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6H6z" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Absolutely. We help identify suitable tax-saving instruments like ELSS, NPS, and insurance to optimize your financial plan.</p>
+                    </div>
+                </div> -->
+
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-zenvest-blue">Can I talk to a real advisor?</h3>
+                        <svg class="w-6 h-6 text-zenvest-blue transform transition-transform" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6H6z" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Yes! All our clients get access to a dedicated human advisor who understands your needs and
+                            works with you directly.</p>
+                    </div>
+                </div>
+            </div>
+    </section>  
+
+
+
+    <!-- Footer -->
+    <footer class="bg-[#2D3073] text-white text-xs md:text-sm px-6 py-8 mt-16">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <p>
+                <strong>Risk Factors:</strong> Investments in mutual funds are subject to market risks. Read all
+                scheme-related documents carefully before investing.
+                Mutual fund schemes do not assure or guarantee any returns. Past performances may or may not be
+                sustained in the future. There is no guarantee that the investment objective of any suggested scheme
+                shall be achieved.
+                All existing and prospective investors are advised to evaluate the exit loads and cost structures (TER)
+                applicable at the time of investment.
+                We deal in regular plans only and earn a trailing commission, disclosed at the time of investment.
+                Direct plans with lower expense ratios are available but we do not deal in them.
+            </p>
+
+            <p>
+                <strong>AMFI Registered Mutual Fund Distributor</strong> | ARN-192670 | Validity: 04.04.2026
+            </p>
+
+            <p>
+                For inquiries or complaints, please email us at <a href="mailto:support@zenvest.com"
+                    class="underline hover:text-[#AEF2CC]">support@zenvest.com</a>
+            </p>
+
+            <p class="text-center text-gray-300 text-xs pt-4 border-t border-[#AEF2CC]">
+                &copy; 2025 Zenvest Financial Services LLP. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Script to toggle mobile dropdown menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const resourcesToggle = document.getElementById('resources-toggle');
+        const mobileResources = document.getElementById('mobile-resources');
+
+        // Toggle entire mobile menu
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Toggle mobile Resources submenu
+        resourcesToggle.addEventListener('click', () => {
+            mobileResources.classList.toggle('hidden');
+        });
+    </script>
+
+<script>
+
+    // FAQ Toggle
+    function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('svg').style.transform = 'rotate(0deg)';
+            });
+            if (!isActive) {
+                faqItem.classList.add('active');
+                element.querySelector('svg').style.transform = 'rotate(180deg)';
+            }
+        }
+</script>
+
+
+</body>
+
+</html>
