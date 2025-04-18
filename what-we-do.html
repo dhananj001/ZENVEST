@@ -76,7 +76,7 @@
 
 
         <!-- Wealth Management Services Hero Section -->
-        <section class="bg-gray-50 rounded-lg shadow-md p-8 md:p-12 mb-16">
+        <section class="bg-gray-50 rounded shadow-md p-8 md:p-12 mb-16">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-4xl md:text-4xl font-bold text-[#2D3073] mb-4">
                     Wealth Management Services
@@ -108,7 +108,7 @@
             <div class="grid md:grid-cols-2 gap-8">
 
                 <!-- Card 1 -->
-                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                <div class="border border-gray-200 rounded p-6 shadow-md hover:shadow-lg transition">
                     <div class="flex items-start gap-4">
                         <i class="fa-solid fa-chart-line text-[#118C3C] text-3xl"></i>
                         <div>
@@ -120,7 +120,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                <div class="border border-gray-200 rounded p-6 shadow-md hover:shadow-lg transition">
                     <div class="flex items-start gap-4">
                         <i class="fa-solid fa-pie-chart text-[#118C3C] text-3xl"></i>
                         <div>
@@ -132,7 +132,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                <div class="border border-gray-200 rounded p-6 shadow-md hover:shadow-lg transition">
                     <div class="flex items-start gap-4">
                         <i class="fa-solid fa-tags text-[#118C3C] text-3xl"></i>
                         <div>
@@ -144,7 +144,7 @@
                 </div>
 
                 <!-- Card 4 -->
-                <div class="border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                <div class="border border-gray-200 rounded p-6 shadow-md hover:shadow-lg transition">
                     <div class="flex items-start gap-4">
                         <i class="fa-solid fa-rotate text-[#118C3C] text-3xl"></i>
                         <div>
@@ -158,41 +158,109 @@
         </section>
 
         <!-- What We Offer -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 border-b-2 pb-2 text-center">What We Offer</h2>
-            <div class="grid md:grid-cols-4 gap-6 text-center text-md">
+        <section class="py-16 bg-white">
+            <h1 class="text-4xl font-bold mb-8 border-b-2 pb-2 text-center">What We Offer</h1>
+            <!-- <div class="grid md:grid-cols-2 gap-8"> -->
+
+            <div class="space-y-12 max-w-7xl mx-auto px-4">
 
                 <!-- Mutual Funds -->
-                <div class="border rounded-lg p-5 shadow hover:shadow-lg transition">
-                    <i class="fa-solid fa-coins text-[#167336] text-3xl mb-2"></i>
-                    <h4 class="font-semibold text-lg mb-1">Mutual Funds</h4>
-                    <p>Diversified and regulated investment options tailored for various financial goals.</p>
+                <div
+                    class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 shadow-md hover:shadow-lg transition p-6 md:p-10 border border-gray-200">
+                    <img src="assets/images/mutualfunds.png" alt="Mutual Funds"
+                        class="w-full md:w-[40%] rounded object-cover h-64 md:h-72 shadow-md" />
+                    <div class="md:w-[60%] space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-coins text-[#167336] text-3xl"></i>
+                            <h3 class="text-2xl font-semibold">Mutual Funds</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            A smart and flexible way to invest in a professionally managed basket of assets suited to
+                            your financial goals.
+                        </p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Diversified across equity, debt, and hybrid schemes.</li>
+                            <li>Cost-effective and ideal for SIPs and long-term planning.</li>
+                            <li>Managed by experts under SEBI regulations.</li>
+                            <li>Tailored to match your financial objectives and risk appetite.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- PMS -->
-                <div class="border rounded-lg p-5 shadow hover:shadow-lg transition">
-                    <i class="fa-solid fa-briefcase text-[#167336] text-3xl mb-2"></i>
-                    <h4 class="font-semibold text-lg mb-1">PMS</h4>
-                    <p>Personalized, actively managed investment portfolios for HNI clients.</p>
+                <div
+                    class="flex flex-col md:flex-row-reverse items-center gap-8 bg-gray-50 shadow-md hover:shadow-lg transition p-6 md:p-10 border border-gray-200">
+                    <img src="assets/images/portfoliomanag.png" alt="PMS"
+                        class="w-full md:w-[40%] rounded object-cover h-64 md:h-72 shadow-md" />
+                    <div class="md:w-[60%] space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-briefcase text-[#167336] text-3xl"></i>
+                            <h3 class="text-2xl font-semibold">Portfolio Management Services (PMS)</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Tailored investment solutions for HNIs, combining deep market insights with personalized
+                            portfolio strategies.
+                        </p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Actively managed investments aligned with your profile.</li>
+                            <li>Focused stock selection and real-time rebalancing.</li>
+                            <li>Detailed analytics and performance reporting.</li>
+                            <li>Higher transparency and control than regular funds.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- AIFs -->
-                <div class="border rounded-lg p-5 shadow hover:shadow-lg transition">
-                    <i class="fa-solid fa-vault text-[#167336] text-3xl mb-2"></i>
-                    <h4 class="font-semibold text-lg mb-1">AIFs</h4>
-                    <p>Alternative investment opportunities for higher returns with strategic exposure.</p>
+                <div
+                    class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 shadow-md hover:shadow-lg transition p-6 md:p-10 border border-gray-200">
+                    <img src="assets/images/aif.png" alt="AIFs"
+                        class="w-full md:w-[40%] rounded object-cover h-64 md:h-72 shadow-md" />
+                    <div class="md:w-[60%] space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-vault text-[#167336] text-3xl"></i>
+                            <h3 class="text-2xl font-semibold">Alternative Investment Funds (AIFs)</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Gain access to exclusive high-growth opportunities through curated investment vehicles
+                            designed for sophisticated investors.
+                        </p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Investments in private equity, venture capital, and more.</li>
+                            <li>Strategic diversification beyond traditional assets.</li>
+                            <li>Higher return potential with calculated risks.</li>
+                            <li>Ideal for seasoned investors seeking alternative growth paths.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Corporate FD -->
-                <div class="border rounded-lg p-5 shadow hover:shadow-lg transition">
-                    <i class="fa-solid fa-building-columns text-[#167336] text-3xl mb-2"></i>
-                    <h4 class="font-semibold text-lg mb-1">Corporate FDs</h4>
-                    <p>Fixed deposits with reputed corporations offering attractive returns.</p>
+                <!-- Corporate FDs -->
+                <div
+                    class="flex flex-col md:flex-row-reverse items-center gap-8 bg-gray-50 shadow-md hover:shadow-lg transition p-6 md:p-10 border border-gray-200">
+                    <img src="assets/images/corporatefixeddeposit.png" alt="Corporate FDs"
+                        class="w-full md:w-[40%] rounded object-cover h-64 md:h-72 shadow-md" />
+                    <div class="md:w-[60%] space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-building-columns text-[#167336] text-3xl"></i>
+                            <h3 class="text-2xl font-semibold">Corporate Fixed Deposits (FDs)</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Stable, fixed-income investment options with higher interest rates than bank FDs — backed by
+                            reputed corporates.
+                        </p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Attractive returns with flexible tenure options.</li>
+                            <li>Issued by credit-rated companies for added security.</li>
+                            <li>Low-risk investment with predictable outcomes.</li>
+                            <li>Perfect for capital preservation with income generation.</li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
         </section>
 
     </div>
+
 
     <!-- Footer -->
     <footer class="bg-[#2D3073] text-white text-xs md:text-sm px-6 py-8 mt-16">
@@ -203,7 +271,8 @@
                 Mutual fund schemes do not assure or guarantee any returns. Past performances may or may not be
                 sustained in the future. There is no guarantee that the investment objective of any suggested scheme
                 shall be achieved.
-                All existing and prospective investors are advised to evaluate the exit loads and cost structures (TER)
+                All existing and prospective investors are advised to evaluate the exit loads and cost structures
+                (TER)
                 applicable at the time of investment.
                 We deal in regular plans only and earn a trailing commission, disclosed at the time of investment.
                 Direct plans with lower expense ratios are available but we do not deal in them.
