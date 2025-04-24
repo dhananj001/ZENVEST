@@ -3,87 +3,84 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zenvest Financial Services LLP</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
-<body class="h-screen w-screen font-sans">
-
-    <div class="flex h-full">
-
+<body class="min-h-screen w-screen font-sans flex flex-col bg-[#F2F2F2]">
+    <div class="flex flex-col md:flex-row h-full flex-grow">
         <!-- Left Section (Branding) -->
-        <div class="w-1/2 bg-[#F2F2F2] flex items-center justify-center">
+        <div class="w-full md:w-1/2 bg-[#F2F2F2] flex items-center justify-center py-8 md:py-0">
             <div class="text-center">
-                <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="w-1/2 mx-auto mb-4">
+                <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="w-3/4 md:w-1/2 mx-auto mb-4">
             </div>
         </div>
 
         <!-- Right Section (Content) -->
-        <div class="w-1/2 bg-[#2D3073] text-white relative overflow-y-auto">
-
+        <div class="w-full md:w-1/2 bg-[#2D3073] text-white relative overflow-y-auto">
             <!-- Navbar -->
-            <nav
-                class="absolute top-0 left-0 w-full flex justify-end p-6 h-16 space-x-6 text-sm sticky top-0 z-50 bg-[#2D3073] ">
-                <a href="#" class="text-[#AEF2CC] hover:underline">Home</a>
-                <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
-                <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
-                <a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a>
-
-                <!-- Resources Dropdown -->
-                <div class="relative group">
-                    <button class="hover:text-[#AEF2CC]">Resources</button>
-                    <div
-                        class="absolute left-0 top-full mt-1 hidden group-hover:flex flex-col bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50">
-                        <a href="financial-calculators.html" class="px-4 py-2 hover:bg-[#f0f0f0]">Financial
-                            Calculators</a>
-                        <a href="investor-education.html" class="px-4 py-2 hover:bg-[#f0f0f0]">Investor Education</a>
-                    </div>
+            <nav class="w-full flex justify-end p-4 md:p-6 h-16 space-x-4 md:space-x-6 text-sm sticky top-0 z-50 bg-[#2D3073]">
+                <button id="menu-btn" class="md:hidden text-[#AEF2CC] focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <div id="dropdown-menu" class="hidden absolute top-16 left-0 w-full bg-[#2D3073] text-[#AEF2CC] flex flex-col items-center space-y-2 p-4 md:hidden">
+                    <a href="#" class="hover:text-[#FFD700] py-1">Home</a>
+                    <a href="about-us.html" class="hover:text-[#FFD700] py-1">About Us</a>
+                    <a href="what-we-do.html" class="hover:text-[#FFD700] py-1">What We Do</a>
+                    <a href="kyc.html" class="hover:text-[#FFD700] py-1">KYC</a>
+                    <a href="financial-calculators.html" class="hover:text-[#FFD700] py-1">Financial Calculators</a>
+                    <a href="investor-education.html" class="hover:text-[#FFD700] py-1">Investor Education</a>
+                    <a href="faq.html" class="hover:text-[#FFD700] py-1">FAQ Page</a>
+                    <!-- <a href="contact.html" class="hover:text-[#FFD700] py-1">Contact Us</a> -->
                 </div>
-
-                <a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a>
-                <a href="#" class="hover:text-[#AEF2CC]">Contact Us</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="text-[#AEF2CC] hover:underline">Home</a>
+                    <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
+                    <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
+                    <a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a>
+                    <!-- Resources Dropdown -->
+                    <div class="relative group">
+                        <button class="hover:text-[#AEF2CC]">Resources</button>
+                        <div class="absolute left-0 top-full mt-1 hidden group-hover:flex flex-col bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50">
+                            <a href="financial-calculators.html" class="px-4 py-2 hover:bg-[#f0f0f0]">Financial Calculators</a>
+                            <a href="investor-education.html" class="px-4 py-2 hover:bg-[#f0f0f0]">Investor Education</a>
+                        </div>
+                    </div>
+                    <a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a>
+                    <a href="contact.html" class="hover:text-[#AEF2CC]">Contact Us</a>
+                </div>
             </nav>
 
             <!-- Main Content -->
-            <div class="flex flex-col justify-center h-full p-10 space-y-6 pb-36">
-                <h2 class="text-3xl font-semibold text-[#AEF2CC]">Invest in Zen</h2>
-
-                <blockquote class="italic border-l-4 border-[#AEF2CC] pl-4">
-                    “Successful Investment is all about managing risk, not avoiding it” — <span
-                        class="font-semibold">Benjamin Graham</span>
+            <div class="flex flex-col justify-center h-full p-6 md:p-10 space-y-6 pb-36">
+                <h2 class="text-2xl md:text-3xl font-semibold text-[#AEF2CC]">Invest in Zen</h2>
+                <blockquote class="italic border-l-4 border-[#AEF2CC] pl-4 text-sm md:text-base">
+                    “Successful Investment is all about managing risk, not avoiding it” — <span class="font-semibold">Benjamin Graham</span>
                 </blockquote>
-
-                <blockquote class="italic border-l-4 border-[#118C3C] pl-4">
-                    “Compound interest is the eighth wonder of the world. He who understands it, earns it; he who
-                    doesn't, pays it.” — <span class="font-semibold">Albert Einstein</span>
+                <blockquote class="italic border-l-4 border-[#118C3C] pl-4 text-sm md:text-base">
+                    “Compound interest is the eighth wonder of the world. He who understands it, earns it; he who doesn't, pays it.” — <span class="font-semibold">Albert Einstein</span>
                 </blockquote>
-
-                <p class="text-sm leading-relaxed">
-                    Risk and Return are faces of the same coin. In the world of investments, patience and consistency
-                    pay well in the long run.
-                    The market is known for its short-term fluctuations, but long-term investments are more likely to
-                    reap rewards.
+                <p class="text-xs md:text-sm leading-relaxed">
+                    Risk and Return are faces of the same coin. In the world of investments, patience and consistency pay well in the long run.
+                    The market is known for its short-term fluctuations, but long-term investments are more likely to reap rewards.
                 </p>
-
-                <div class="mt-4 text-lg font-semibold text-[#AEF2CC]">Welcome!</div>
-
-                <p class="text-sm leading-relaxed">
+                <div class="mt-4 text-base md:text-lg font-semibold text-[#AEF2CC]">Welcome!</div>
+                <p class="text-xs md:text-sm leading-relaxed">
                     We are a boutique investment management firm where our core expertise is client centricity.
-                    Our focus is to assist in choosing the right investment avenues to help clients preserve, manage,
-                    and grow wealth and legacy.
+                    Our focus is to assist in choosing the right investment avenues to help clients preserve, manage, and grow wealth and legacy.
                 </p>
             </div>
 
             <!-- Contact Info -->
-            <div class="absolute bottom-4 right-4 text-sm text-[#AEF2CC] space-y-2">
-                <div class="flex items-center space-x-2">
+            <div class="absolute bottom-4 left-0 right-0 text-center md:bottom-4 md:right-4 md:text-right text-xs md:text-sm text-[#AEF2CC] space-y-2 px-4">
+                <div class="flex items-center justify-center md:justify-end space-x-2">
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:info@zenvest.com" class="hover:underline">info@zenvest.com</a>
                 </div>
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center justify-center md:justify-end space-x-2">
                     <i class="fas fa-phone"></i>
                     <a href="tel:+919663175538" class="hover:underline">+91 96631 75538</a>
                 </div>
@@ -92,36 +89,40 @@
             <!-- Footer Disclaimer -->
             <footer class="mt-10 p-4 text-xs text-gray-300 border-t border-gray-500">
                 <p class="mb-4">
-                    <strong>Risk Factors –</strong> Investments in mutual funds are subject to market risks. Read all
-                    scheme-related documents carefully before investing.
-                    Mutual fund schemes do not assure or guarantee any returns. Past performances of any mutual fund
-                    scheme may or may not be sustained in the future.
-                    There is no guarantee that the investment objective of any suggested scheme shall be achieved. All
-                    existing and prospective investors are advised to
-                    check and evaluate the exit loads and other cost structure (TER) applicable at the time of making
-                    the investment before finalizing any investment
-                    decision for mutual fund schemes. We deal in regular plans only for mutual fund schemes and earn a
-                    trailing commission on client investments.
-                    Disclosure for commission earnings is made to clients at the time of investments. An option of
-                    direct plan for every mutual fund scheme is available
-                    to investors offering the advantage of lower expense ratio. We are not entitled to earn any
-                    commission on direct plans. Hence, we do not deal in direct plans.
+                    <strong>Risk Factors –</strong> Investments in mutual funds are subject to market risks. Read all scheme-related documents carefully before investing.
+                    Mutual fund schemes do not assure or guarantee any returns. Past performances of any mutual fund scheme may or may not be sustained in the future.
+                    There is no guarantee that the investment objective of any suggested scheme shall be achieved. All existing and prospective investors are advised to
+                    check and evaluate the exit loads and other cost structure (TER) applicable at the time of making the investment before finalizing any investment
+                    decision for mutual fund schemes. We deal in regular plans only for mutual fund schemes and earn a trailing commission on client investments.
+                    Disclosure for commission earnings is made to clients at the time of investments. An option of direct plan for every mutual fund scheme is available
+                    to investors offering the advantage of lower expense ratio. We are not entitled to earn any commission on direct plans. Hence, we do not deal in direct plans.
                 </p>
                 <p class="mb-2">
                     <strong>AMFI Registered Mutual Fund Distributor</strong> | ARN-324331 | Current validity: 13.03.2028
                 </p>
                 <p>
                     For any inquiries, grievances, or complaints, please address them in writing to
-                    <a href="mailto:support@zenvest.com"
-                        class="text-[#AEF2CC] hover:underline">support@zenvest.com</a>
+                    <a href="mailto:support@zenvest.com" class="text-[#AEF2CC] hover:underline">support@zenvest.com</a>
                 </p>
             </footer>
-
-
         </div>
-
     </div>
 
-</body>
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-16 right-4 z-50">
+        <a href="https://wa.me/919663175538?text=Hello%2C%20I%27m%20interested%20in%20Zenvest%20services" target="_blank" 
+           class="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-[#AEF2CC] text-[#2D3073] rounded-full shadow-lg hover:bg-[#FFD700] transition-colors">
+            <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+        </a>
+    </div>
 
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
 </html>

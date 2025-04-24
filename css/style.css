@@ -1,0 +1,75 @@
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+/* Mobile-specific styles for Zenvest index.html */
+@media (max-width: 767px) {
+    /* Adjust logo size */
+    .w-3\/4 {
+        width: 60%;
+    }
+
+    /* Reduce content padding and font sizes */
+    .p-6 {
+        padding: 1rem;
+    }
+    .pb-48 {
+        padding-bottom: 12rem; /* Increased for contact info and footer */
+    }
+    .text-2xl {
+        font-size: 1.5rem;
+    }
+    .text-base {
+        font-size: 0.875rem;
+    }
+    .text-sm {
+        font-size: 0.75rem;
+    }
+    .text-xs {
+        font-size: 0.675rem;
+    }
+
+    /* Contact info centered, above footer */
+    .contact-info {
+        bottom: 10rem; /* Higher to avoid footer */
+        text-align: center;
+    }
+
+    /* Footer padding and margin */
+    .p-4 {
+        padding: 0.75rem;
+    }
+    .mt-16 {
+        margin-top: 4rem; /* Gap above footer */
+    }
+
+    /* WhatsApp button */
+    .bottom-16 {
+        bottom: 3rem; /* Adjusted to avoid footer overlap */
+    }
+
+    /* Navbar dropdown */
+    #dropdown-menu {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Desktop-specific contact info */
+@media (min-width: 768px) {
+    .contact-info {
+        bottom: 1rem;
+        right: 1rem;
+        text-align: right;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent overflow issues */
+.overflow-y-auto {
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
