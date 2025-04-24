@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Retirement Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffffff, #ffffff);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .calculator-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 0.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    input,
+    button {
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      ring: 2px solid #AEF2CC;
+    }
+
+    .result-card {
+      background: #AEF2CC;
+      color: #2D3073;
+    }
+
+    .sidebar {
+      background: #f8fafc;
+      border-right: 1px solid #e5e7eb;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    .rupee-input {
+      position: relative;
+    }
+
+    .rupee-input::before {
+      content: '₹';
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #2D3073;
+      font-weight: 500;
+    }
+
+    .rupee-input input {
+      padding-left: 24px;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-[#2D3073] font-sans">
+
+  <!-- Navbar with Logo -->
+  <nav class="sticky top-0 z-50 bg-[#2D3073] text-white w-full flex items-center justify-between px-6 h-16 shadow-md">
+    <!-- Logo Section -->
+    <div class="h-full bg-white flex items-center px-8 border border-[#2D3073]">
+      <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="h-12 w-auto">
+    </div>
+
+    <!-- Hamburger Button (Mobile) -->
+    <button id="menu-btn" class="block md:hidden">
+      <i class="fas fa-bars text-white text-2xl"></i>
+    </button>
+
+    <!-- Navbar Links (Desktop) -->
+    <div id="menu" class="hidden md:flex space-x-6 text-sm items-center relative">
+      <a href="index.html" class="hover:text-[#AEF2CC]">Home</a>
+      <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
+      <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
+      <a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a>
+
+      <!-- Resources Dropdown (Desktop) -->
+      <div class="relative group">
+        <button class="text-[#AEF2CC]">Resources</button>
+        <div
+          class="absolute left-0 top-full mt-2 bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <a href="financial-calculators.html" class="block px-4 py-2 hover:bg-gray-100">Financial
+            Calculators</a>
+          <a href="investor-education.html" class="block px-4 py-2 hover:bg-gray-100">Investor Education</a>
+        </div>
+      </div>
+
+      <a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a>
+      <a href="#" class="hover:text-[#AEF2CC]">Contact Us</a>
+    </div>
+
+    <!-- Dropdown Menu (Mobile) -->
+    <div id="dropdown-menu" class="absolute top-16 left-0 w-full bg-[#2D3073] hidden md:hidden z-40">
+      <ul class="space-y-4 py-4 px-6 text-white">
+        <li><a href="index.html" class="hover:text-[#AEF2CC]">Home</a></li>
+        <li><a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a></li>
+        <li><a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a></li>
+        <li><a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a></li>
+
+        <!-- Mobile Resources Dropdown Toggle -->
+        <li>
+          <button id="resources-toggle" class="w-full text-left hover:text-[#AEF2CC]">Resources</button>
+          <ul id="mobile-resources" class="pl-4 mt-2 space-y-2 hidden">
+            <li><a href="financial-calculators.html" class="block text-sm hover:text-[#AEF2CC]">Financial
+                Calculators</a></li>
+            <li><a href="investor-education.html" class="block text-sm hover:text-[#AEF2CC]">Investor
+                Education</a></li>
+          </ul>
+        </li>
+
+        <li><a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a></li>
+        <!-- <li><a href="#" class="hover:text-[#AEF2CC]">Contact Us</a></li> -->
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Main Section -->
+  <main class="min-h-screen flex items-center justify-center text-gray-800">
+    <div class="calculator-container max-w-6xl w-full mx-4 p-8 my-6 flex flex-col md:flex-row">
+      <!-- Sidebar for Inputs -->
+      <div class="sidebar w-full md:w-1/4 p-2">
+        <h2 class="text-xl font-semibold text-[#2D3073] mb-4">Enter Details</h2>
+        <div class="space-y-6">
+          <div>
+            <label for="currentAge" class="block text-sm font-medium text-gray-700 mb-2">Current Age (Years)</label>
+            <input type="number" id="currentAge" min="18" max="100" value="30"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 30">
+          </div>
+          <div>
+            <label for="retirementAge" class="block text-sm font-medium text-gray-700 mb-2">Retirement Age
+              (Years)</label>
+            <input type="number" id="retirementAge" min="19" max="100" value="60"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 60">
+          </div>
+          <div>
+            <label for="monthlyExpenses" class="block text-sm font-medium text-gray-700 mb-2">Current Monthly Expenses
+              (₹)</label>
+            <div class="rupee-input">
+              <input type="number" id="monthlyExpenses" min="1000" max="1000000" step="100" value="50000"
+                placeholder="e.g., 50000"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]">
+            </div>
+            <span id="monthlyExpensesValue" class="block text-sm text-gray-600 mt-2">₹50,000</span>
+          </div>
+          <div>
+            <label for="inflationRate" class="block text-sm font-medium text-gray-700 mb-2">Expected Annual Inflation
+              Rate (%)</label>
+            <input type="number" id="inflationRate" min="1" max="15" step="0.1" value="6"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 6">
+          </div>
+          <div>
+            <label for="returnRate" class="block text-sm font-medium text-gray-700 mb-2">Expected Annual Return Rate
+              (%)</label>
+            <input type="number" id="returnRate" min="1" max="20" step="0.1" value="12"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 12">
+          </div>
+          <div>
+            <label for="lifeExpectancy" class="block text-sm font-medium text-gray-700 mb-2">Life Expectancy
+              (Years)</label>
+            <input type="number" id="lifeExpectancy" min="20" max="100" value="85"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 85">
+          </div>
+          <button id="calculateBtn"
+            class="w-full px-6 py-3 bg-[#FFD700] text-[#2D3073] font-semibold rounded-lg hover:bg-[#FFC107] transition-colors">Calculate</button>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="w-full md:w-3/4 p-6 overflow-visible min-h-[400px]">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-[#2D3073] mb-6">Zenvest Retirement Planning
+          Calculator</h1>
+        <p class="text-center text-gray-600 mb-8">Plan your retirement to maintain your lifestyle with ease.</p>
+
+        <!-- Results -->
+        <div id="result" class="hidden mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="result-card p-6 rounded-lg text-center">
+            <p class="text-sm font-medium">Monthly Income After Retirement</p>
+            <p id="monthlyIncome" class="text-2xl font-bold mt-2">₹0</p>
+          </div>
+          <div class="result-card p-6 rounded-lg text-center">
+            <p class="text-sm font-medium">Retirement Corpus Needed</p>
+            <p id="corpusNeeded" class="text-2xl font-bold mt-2">₹0</p>
+          </div>
+          <div class="result-card p-6 rounded-lg text-center">
+            <p class="text-sm font-medium">Monthly Investment Required</p>
+            <p id="monthlySIP" class="text-2xl font-bold mt-2">₹0</p>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div id="chartContainer" class="hidden mt-8 min-h-[300px] w-full">
+          <canvas id="retirementChart" class="w-full h-full"></canvas>
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="text-xs text-gray-500 mt-6 text-center">*Results are indicative and based on assumed rates. Actual
+          returns and inflation may vary. Consult a financial advisor. SEBI/AMFI Registered.</p>
+      </div>
+    </div>
+
+    <script>
+      // Format number to Indian Rupee
+      function formatINR(number) {
+        return '₹' + number.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+      }
+
+      // Calculate retirement plan
+      function calculateRetirement(currentAge, retirementAge, monthlyExpenses, inflationRate, returnRate, lifeExpectancy) {
+        const yearsToRetirement = retirementAge - currentAge;
+        const yearsPostRetirement = lifeExpectancy - retirementAge;
+        const inflation = inflationRate / 100;
+        const returnRateAnnual = returnRate / 100;
+
+        // Future monthly expenses at retirement (monthly income)
+        const monthlyIncome = monthlyExpenses * Math.pow(1 + inflation, yearsToRetirement);
+        const annualExpenses = monthlyIncome * 12;
+
+        // Corpus needed at retirement (simplified: expenses × years)
+        const corpusNeeded = annualExpenses * yearsPostRetirement;
+
+        // Monthly SIP required for entire corpus
+        const months = yearsToRetirement * 12;
+        const monthlyRate = returnRateAnnual / 12;
+        const denominator = (((1 + monthlyRate) ** months - 1) / monthlyRate) * (1 + monthlyRate);
+        const monthlySIP = corpusNeeded / denominator;
+
+        return { monthlyIncome, corpusNeeded, monthlySIP };
+      }
+
+      // Generate chart data
+      function getChartData(currentAge, retirementAge, monthlySIP, returnRate, corpusNeeded) {
+        const labels = [];
+        const sipData = [];
+        const corpusData = [];
+        const yearsToRetirement = retirementAge - currentAge;
+        const returnRateAnnual = returnRate / 100;
+        const monthlyRate = returnRateAnnual / 12;
+
+        if (isNaN(monthlySIP) || isNaN(returnRate) || isNaN(corpusNeeded)) {
+          return { labels: [], sipData: [], corpusData: [] };
+        }
+
+        for (let year = 0; year <= yearsToRetirement; year++) {
+          const months = year * 12;
+          const sipValue = monthlySIP * (((1 + monthlyRate) ** months - 1) / monthlyRate) * (1 + monthlyRate);
+          labels.push(`Year ${year}`);
+          sipData.push(isNaN(sipValue) ? 0 : sipValue);
+          corpusData.push(corpusNeeded);
+        }
+
+        return { labels, sipData, corpusData };
+      }
+
+      // Initialize Chart
+      let chartInstance = null;
+      function renderChart(labels, sipData, corpusData) {
+        console.log('Chart rendering with:', { labels, sipData, corpusData });
+        const ctx = document.getElementById('retirementChart').getContext('2d');
+        if (chartInstance) chartInstance.destroy();
+        chartInstance = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Investment Growth',
+                data: sipData,
+                borderColor: '#2D3073',
+                fill: false,
+                tension: 0.1,
+              },
+              {
+                label: 'Corpus Needed',
+                data: corpusData,
+                borderColor: '#FFD700',
+                fill: false,
+                tension: 0.1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  callback: function (value) {
+                    return '₹' + value.toLocaleString('en-IN');
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: { position: 'top' },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return `${context.dataset.label}: ₹${context.parsed.y.toLocaleString('en-IN')}`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      // Update monetary input display
+      const monthlyExpensesInput = document.getElementById('monthlyExpenses');
+      const monthlyExpensesValue = document.getElementById('monthlyExpensesValue');
+
+      function updateMonetaryDisplay(input, display) {
+        const value = input.value;
+        display.textContent = value === '' ? 'Enter amount' : formatINR(parseFloat(value) || 0);
+      }
+
+      monthlyExpensesInput.addEventListener('input', () => updateMonetaryDisplay(monthlyExpensesInput, monthlyExpensesValue));
+      updateMonetaryDisplay(monthlyExpensesInput, monthlyExpensesValue);
+
+      // Handle Calculate Button
+      document.getElementById('calculateBtn').addEventListener('click', () => {
+        console.log('Calculate button clicked');
+        const currentAge = parseInt(document.getElementById('currentAge').value);
+        const retirementAge = parseInt(document.getElementById('retirementAge').value);
+        const monthlyExpensesRaw = document.getElementById('monthlyExpenses').value;
+        const monthlyExpenses = parseFloat(monthlyExpensesRaw);
+        const inflationRate = parseFloat(document.getElementById('inflationRate').value);
+        const returnRate = parseFloat(document.getElementById('returnRate').value);
+        const lifeExpectancy = parseInt(document.getElementById('lifeExpectancy').value);
+
+        // Input Validation
+        if (isNaN(currentAge) || currentAge < 18 || currentAge > 100) {
+          alert('Please enter a current age between 18 and 100 years.');
+          return;
+        }
+        if (isNaN(retirementAge) || retirementAge <= currentAge || retirementAge > 100) {
+          alert(`Please enter a retirement age between ${currentAge + 1} and 100 years.`);
+          return;
+        }
+        if (monthlyExpensesRaw === '' || isNaN(monthlyExpenses)) {
+          alert('Please enter a monthly expenses amount.');
+          return;
+        }
+        if (monthlyExpenses < 1000 || monthlyExpenses > 1000000) {
+          alert('Please enter monthly expenses between ₹1,000 and ₹10,00,000.');
+          return;
+        }
+        if (isNaN(inflationRate) || inflationRate < 1 || inflationRate > 15) {
+          alert('Please enter an inflation rate between 1% and 15%.');
+          return;
+        }
+        if (isNaN(returnRate) || returnRate < 1 || returnRate > 20) {
+          alert('Please enter a return rate between 1% and 20%.');
+          return;
+        }
+        if (isNaN(lifeExpectancy) || lifeExpectancy <= retirementAge || lifeExpectancy > 100) {
+          alert(`Please enter a life expectancy between ${retirementAge + 1} and 100 years.`);
+          return;
+        }
+
+        // Calculate and Display Results
+        const { monthlyIncome, corpusNeeded, monthlySIP } = calculateRetirement(
+          currentAge, retirementAge, monthlyExpenses, inflationRate, returnRate, lifeExpectancy
+        );
+        document.getElementById('monthlyIncome').textContent = formatINR(monthlyIncome);
+        document.getElementById('corpusNeeded').textContent = formatINR(corpusNeeded);
+        document.getElementById('monthlySIP').textContent = formatINR(monthlySIP);
+        document.getElementById('result').classList.remove('hidden');
+
+        // Smooth scroll to results in mobile view (<768px)
+        if (window.innerWidth < 768) {
+          document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Render Chart
+        const { labels, sipData, corpusData } = getChartData(
+          currentAge, retirementAge, monthlySIP, returnRate, corpusNeeded
+        );
+        renderChart(labels, sipData, corpusData);
+        document.getElementById('chartContainer').classList.remove('hidden');
+      });
+    </script>
+  </main>
+
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-20 right-6 z-50">
+        <a href="https://wa.me/919663175538?text=Hello%2C%20I%27m%20interested%20in%20Zenvest%20services"
+            target="_blank"
+            class="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-[#AEF2CC] text-[#2D3073] rounded-full shadow-lg hover:bg-[#FFD700] transition-colors">
+            <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+        </a>
+    </div>
+</body>
+
+</html>

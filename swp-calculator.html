@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Retirement Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffffff, #ffffff);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .calculator-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 0.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    input,
+    button {
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      ring: 2px solid #AEF2CC;
+    }
+
+    .result-card {
+      background: #AEF2CC;
+      color: #2D3073;
+    }
+
+    .sidebar {
+      background: #f8fafc;
+      border-right: 1px solid #e5e7eb;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    .rupee-input {
+      position: relative;
+    }
+
+    .rupee-input::before {
+      content: '₹';
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #2D3073;
+      font-weight: 500;
+    }
+
+    .rupee-input input {
+      padding-left: 24px;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-[#2D3073] font-sans">
+
+  <!-- Navbar with Logo -->
+  <nav class="sticky top-0 z-50 bg-[#2D3073] text-white w-full flex items-center justify-between px-6 h-16 shadow-md">
+    <!-- Logo Section -->
+    <div class="h-full bg-white flex items-center px-8 border border-[#2D3073]">
+      <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="h-12 w-auto">
+    </div>
+
+    <!-- Hamburger Button (Mobile) -->
+    <button id="menu-btn" class="block md:hidden">
+      <i class="fas fa-bars text-white text-2xl"></i>
+    </button>
+
+    <!-- Navbar Links (Desktop) -->
+    <div id="menu" class="hidden md:flex space-x-6 text-sm items-center relative">
+      <a href="index.html" class="hover:text-[#AEF2CC]">Home</a>
+      <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
+      <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
+      <a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a>
+
+      <!-- Resources Dropdown (Desktop) -->
+      <div class="relative group">
+        <button class="text-[#AEF2CC]">Resources</button>
+        <div
+          class="absolute left-0 top-full mt-2 bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <a href="financial-calculators.html" class="block px-4 py-2 hover:bg-gray-100">Financial
+            Calculators</a>
+          <a href="investor-education.html" class="block px-4 py-2 hover:bg-gray-100">Investor Education</a>
+        </div>
+      </div>
+
+      <a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a>
+      <a href="#" class="hover:text-[#AEF2CC]">Contact Us</a>
+    </div>
+
+    <!-- Dropdown Menu (Mobile) -->
+    <div id="dropdown-menu" class="absolute top-16 left-0 w-full bg-[#2D3073] hidden md:hidden z-40">
+      <ul class="space-y-4 py-4 px-6 text-white">
+        <li><a href="index.html" class="hover:text-[#AEF2CC]">Home</a></li>
+        <li><a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a></li>
+        <li><a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a></li>
+        <li><a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a></li>
+
+        <!-- Mobile Resources Dropdown Toggle -->
+        <li>
+          <button id="resources-toggle" class="w-full text-left hover:text-[#AEF2CC]">Resources</button>
+          <ul id="mobile-resources" class="pl-4 mt-2 space-y-2 hidden">
+            <li><a href="financial-calculators.html" class="block text-sm hover:text-[#AEF2CC]">Financial
+                Calculators</a></li>
+            <li><a href="investor-education.html" class="block text-sm hover:text-[#AEF2CC]">Investor
+                Education</a></li>
+          </ul>
+        </li>
+
+        <li><a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a></li>
+        <!-- <li><a href="#" class="hover:text-[#AEF2CC]">Contact Us</a></li> -->
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Main Section -->
+  <main class="min-h-screen flex items-center justify-center text-gray-800">
+    <div class="calculator-container max-w-5xl w-full mx-4 p-8 my-8 flex flex-col md:flex-row">
+      <!-- Sidebar for Inputs -->
+      <div class="sidebar w-full md:w-1/4 p-6">
+        <h2 class="text-xl font-semibold text-[#2D3073] mb-4">Enter Details</h2>
+        <div class="space-y-6">
+          <div>
+            <label for="initialInvestment" class="block text-sm font-medium text-gray-700 mb-2">Initial Investment
+              Amount (₹)</label>
+            <div class="rupee-input">
+              <input type="number" id="initialInvestment" min="100000" max="500000000" step="1000" value="10000000"
+                placeholder="e.g., 10000000"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]">
+            </div>
+            <span id="initialInvestmentValue" class="block text-sm text-gray-600 mt-2">₹1,00,00,000</span>
+          </div>
+          <div>
+            <label for="returnRate" class="block text-sm font-medium text-gray-700 mb-2">Expected Annual Return Rate
+              (%)</label>
+            <input type="number" id="returnRate" min="1" max="12" step="0.1" value="8"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 8">
+          </div>
+          <div>
+            <label for="withdrawalPeriod" class="block text-sm font-medium text-gray-700 mb-2">Withdrawal Period
+              (Years)</label>
+            <input type="number" id="withdrawalPeriod" min="1" max="30" value="20"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 20">
+          </div>
+          <button id="calculateBtn"
+            class="w-full px-6 py-3 bg-[#FFD700] text-[#2D3073] font-semibold rounded-lg hover:bg-[#FFC107] transition-colors">Calculate</button>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="w-full md:w-3/4 p-6 overflow-visible min-h-[400px]">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-[#2D3073] mb-6">Zenvest SWP Calculator</h1>
+        <p class="text-center text-gray-600 mb-8">Plan your regular withdrawals to meet your financial needs.</p>
+
+        <!-- Results -->
+        <div id="result" class="hidden mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="result-card p-6 rounded-lg text-center">
+            <p class="text-sm font-medium">Monthly Withdrawal Amount</p>
+            <p id="monthlyWithdrawal" class="text-2xl font-bold mt-2">₹0</p>
+          </div>
+          <div class="result-card p-6 rounded-lg text-center">
+            <p class="text-sm font-medium">Remaining Corpus</p>
+            <p id="remainingCorpus" class="text-2xl font-bold mt-2">₹0</p>
+          </div>
+          <div class="result-card p-6 rounded-lg text-center">
+            <p class="text-sm font-medium">Total Withdrawals</p>
+            <p id="totalWithdrawals" class="text-2xl font-bold mt-2">₹0</p>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div id="chartContainer" class="hidden mt-8 min-h-[300px] w-full">
+          <canvas id="swpChart" class="w-full h-full"></canvas>
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="text-xs text-gray-500 mt-6 text-center">*Results are indicative and based on assumed rates. Actual
+          returns may vary. Consult a financial advisor. SEBI/AMFI Registered.</p>
+      </div>
+    </div>
+
+    <script>
+      // Format number to Indian Rupee
+      function formatINR(number) {
+        return '₹' + number.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+      }
+
+      // Calculate SWP
+      function calculateSWP(initialInvestment, returnRate, withdrawalPeriod) {
+        const months = withdrawalPeriod * 12;
+        const monthlyRate = returnRate / 100 / 12;
+
+        // Monthly withdrawal amount (annuity formula, full depletion)
+        const monthlyWithdrawal = (initialInvestment * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+
+        // Remaining corpus (should be ~0 for full depletion)
+        const remainingCorpus = initialInvestment * Math.pow(1 + monthlyRate, months) - monthlyWithdrawal * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+
+        // Total withdrawals
+        const totalWithdrawals = monthlyWithdrawal * months;
+
+        return { monthlyWithdrawal, remainingCorpus, totalWithdrawals };
+      }
+
+      // Generate chart data
+      function getChartData(initialInvestment, returnRate, withdrawalPeriod, monthlyWithdrawal) {
+        const labels = [];
+        const corpusData = [];
+        const months = withdrawalPeriod * 12;
+        const monthlyRate = returnRate / 100 / 12;
+
+        if (isNaN(initialInvestment) || isNaN(returnRate) || isNaN(withdrawalPeriod) || isNaN(monthlyWithdrawal)) {
+          return { labels: [], corpusData: [] };
+        }
+
+        let currentCorpus = initialInvestment;
+        for (let month = 0; month <= months; month++) {
+          if (month % 12 === 0) {
+            labels.push(`Year ${month / 12}`);
+            corpusData.push(isNaN(currentCorpus) || currentCorpus < 0 ? 0 : currentCorpus);
+          }
+          // Update corpus: earn return, then withdraw
+          currentCorpus = currentCorpus * (1 + monthlyRate) - (month < months ? monthlyWithdrawal : 0);
+        }
+
+        return { labels, corpusData };
+      }
+
+      // Initialize Chart
+      let chartInstance = null;
+      function renderChart(labels, corpusData) {
+        console.log('Chart rendering with:', { labels, corpusData });
+        const ctx = document.getElementById('swpChart').getContext('2d');
+        if (chartInstance) chartInstance.destroy();
+        chartInstance = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Corpus Value',
+                data: corpusData,
+                borderColor: '#2D3073',
+                fill: false,
+                tension: 0.1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  callback: function (value) {
+                    return '₹' + value.toLocaleString('en-IN');
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: { position: 'top' },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return `${context.dataset.label}: ₹${context.parsed.y.toLocaleString('en-IN')}`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      // Update monetary input display
+      const initialInvestmentInput = document.getElementById('initialInvestment');
+      const initialInvestmentValue = document.getElementById('initialInvestmentValue');
+
+      function updateMonetaryDisplay(input, display) {
+        const value = input.value;
+        display.textContent = value === '' ? 'Enter amount' : formatINR(parseFloat(value) || 0);
+      }
+
+      initialInvestmentInput.addEventListener('input', () => updateMonetaryDisplay(initialInvestmentInput, initialInvestmentValue));
+      updateMonetaryDisplay(initialInvestmentInput, initialInvestmentValue);
+
+      // Handle Calculate Button
+      document.getElementById('calculateBtn').addEventListener('click', () => {
+        console.log('Calculate button clicked');
+        const initialInvestmentRaw = document.getElementById('initialInvestment').value;
+        const initialInvestment = parseFloat(initialInvestmentRaw);
+        const returnRate = parseFloat(document.getElementById('returnRate').value);
+        const withdrawalPeriod = parseInt(document.getElementById('withdrawalPeriod').value);
+
+        // Input Validation
+        if (initialInvestmentRaw === '' || isNaN(initialInvestment)) {
+          alert('Please enter an initial investment amount.');
+          return;
+        }
+        if (initialInvestment < 100000 || initialInvestment > 500000000) {
+          alert('Please enter an initial investment amount between ₹1,00,000 and ₹50,00,00,000.');
+          return;
+        }
+        if (isNaN(returnRate) || returnRate < 1 || returnRate > 12) {
+          alert('Please enter a return rate between 1% and 12%.');
+          return;
+        }
+        if (isNaN(withdrawalPeriod) || withdrawalPeriod < 1 || withdrawalPeriod > 30) {
+          alert('Please enter a withdrawal period between 1 and 30 years.');
+          return;
+        }
+
+        // Calculate and Display Results
+        const { monthlyWithdrawal, remainingCorpus, totalWithdrawals } = calculateSWP(initialInvestment, returnRate, withdrawalPeriod);
+        document.getElementById('monthlyWithdrawal').textContent = formatINR(monthlyWithdrawal);
+        document.getElementById('remainingCorpus').textContent = formatINR(Math.max(0, remainingCorpus));
+        document.getElementById('totalWithdrawals').textContent = formatINR(totalWithdrawals);
+        document.getElementById('result').classList.remove('hidden');
+
+        // Smooth scroll to results in mobile view (<768px)
+        if (window.innerWidth < 768) {
+          document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Render Chart
+        const { labels, corpusData } = getChartData(initialInvestment, returnRate, withdrawalPeriod, monthlyWithdrawal);
+        renderChart(labels, corpusData);
+        document.getElementById('chartContainer').classList.remove('hidden');
+      });
+    </script>
+  </main>
+
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-20 right-6 z-50">
+        <a href="https://wa.me/919663175538?text=Hello%2C%20I%27m%20interested%20in%20Zenvest%20services"
+            target="_blank"
+            class="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-[#AEF2CC] text-[#2D3073] rounded-full shadow-lg hover:bg-[#FFD700] transition-colors">
+            <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+        </a>
+    </div>
+</body>
+
+</html>

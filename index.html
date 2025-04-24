@@ -7,26 +7,60 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
-<body class="h-screen w-screen font-sans">
+<body class="h-screen w-screen font-sans" style="visibility: hidden;">
 
-    <div class="flex h-full">
+    <!-- MOBILE NAVBAR: Visible on small screens only -->
+    <nav
+        class="sticky top-0 z-50 bg-[#2D3073] text-white w-full flex items-center justify-between px-6 h-16 shadow-md md:hidden">
+        <!-- Logo -->
+        <div class="h-full bg-white flex items-center px-4 border border-[#2D3073]">
+            <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="h-10 w-auto">
+        </div>
+        <!-- Hamburger Button -->
+        <button id="menu-btn" class="block">
+            <i class="fas fa-bars text-white text-2xl"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="dropdown-menu" class="bg-[#2D3073] hidden md:hidden z-40">
+        <ul class="space-y-4 py-4 px-6 text-white">
+            <li><a href="index.html" class="hover:text-[#AEF2CC]">Home</a></li>
+            <li><a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a></li>
+            <li><a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a></li>
+            <li><a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a></li>
+            <li>
+                <button id="resources-toggle" class="w-full text-left hover:text-[#AEF2CC]">Resources</button>
+                <ul id="mobile-resources" class="pl-4 mt-2 space-y-2 hidden">
+                    <li><a href="financial-calculators.html" class="block text-sm hover:text-[#AEF2CC]">Financial
+                            Calculators</a></li>
+                    <li><a href="investor-education.html" class="block text-sm hover:text-[#AEF2CC]">Investor
+                            Education</a></li>
+                </ul>
+            </li>
+            <li><a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a></li>
+            <!-- <li><a href="#" class="hover:text-[#AEF2CC]">Contact Us</a></li> -->
+        </ul>
+    </div>
+
+    <!-- Responsive Layout -->
+    <div class="flex flex-col md:flex-row h-screen">
 
         <!-- Left Section (Branding) -->
-        <div class="w-1/2 bg-[#F2F2F2] flex items-center justify-center">
+        <div class="w-full md:w-1/2 h-[20vh] md:h-full bg-[#F2F2F2] flex items-center justify-center">
             <div class="text-center">
                 <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="w-1/2 mx-auto mb-4">
             </div>
         </div>
 
         <!-- Right Section (Content) -->
-        <div class="w-1/2 bg-[#2D3073] text-white relative overflow-y-auto">
+        <div class="w-full md:w-1/2 h-[80vh] md:h-full bg-[#2D3073] text-white relative overflow-y-auto">
 
-            <!-- Navbar -->
+            <!-- DESKTOP NAVBAR -->
             <nav
-                class="absolute top-0 left-0 w-full flex justify-end p-6 h-16 space-x-6 text-sm sticky top-0 z-50 bg-[#2D3073] ">
+                class="hidden md:flex sticky top-0 z-50 bg-[#2D3073] text-white w-full justify-end px-6 h-16 space-x-6 text-sm items-center">
                 <a href="#" class="text-[#AEF2CC] hover:underline">Home</a>
                 <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
                 <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
@@ -112,16 +146,42 @@
                 </p>
                 <p>
                     For any inquiries, grievances, or complaints, please address them in writing to
-                    <a href="mailto:support@zenvest.com"
-                        class="text-[#AEF2CC] hover:underline">support@zenvest.com</a>
+                    <a href="mailto:support@zenvest.com" class="text-[#AEF2CC] hover:underline">support@zenvest.com</a>
                 </p>
             </footer>
-
-
         </div>
-
     </div>
 
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const resourcesToggle = document.getElementById('resources-toggle');
+        const mobileResources = document.getElementById('mobile-resources');
+
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        resourcesToggle.addEventListener('click', () => {
+            mobileResources.classList.toggle('hidden');
+        });
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+            document.body.style.visibility = 'visible';
+        });
+    </script>
+
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-20 right-6 z-50">
+        <a href="https://wa.me/919663175538?text=Hello%2C%20I%27m%20interested%20in%20Zenvest%20services"
+            target="_blank"
+            class="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-[#AEF2CC] text-[#2D3073] rounded-full shadow-lg hover:bg-[#FFD700] transition-colors">
+            <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+        </a>
+    </div>
 </body>
 
 </html>

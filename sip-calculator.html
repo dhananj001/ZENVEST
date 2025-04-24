@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>SIP Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffffff, #ffffff);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .calculator-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 0.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    input,
+    button {
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      ring: 2px solid #AEF2CC;
+    }
+
+    .result-card {
+      background: #AEF2CC;
+      color: #2D3073;
+    }
+
+    .sidebar {
+      background: #f8fafc;
+      border-right: 1px solid #e5e7eb;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-[#2D3073] font-sans">
+
+  <!-- Navbar with Logo -->
+  <nav class="sticky top-0 z-50 bg-[#2D3073] text-white w-full flex items-center justify-between px-6 h-16 shadow-md">
+    <!-- Logo Section -->
+    <div class="h-full bg-white flex items-center px-8 border border-[#2D3073]">
+      <img src="assets/images/zenvest logo002.png" alt="Zenvest Logo" class="h-12 w-auto">
+    </div>
+
+    <!-- Hamburger Button (Mobile) -->
+    <button id="menu-btn" class="block md:hidden">
+      <i class="fas fa-bars text-white text-2xl"></i>
+    </button>
+
+    <!-- Navbar Links (Desktop) -->
+    <div id="menu" class="hidden md:flex space-x-6 text-sm items-center relative">
+      <a href="index.html" class="hover:text-[#AEF2CC]">Home</a>
+      <a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a>
+      <a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a>
+      <a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a>
+
+      <!-- Resources Dropdown (Desktop) -->
+      <div class="relative group">
+        <button class="text-[#AEF2CC]">Resources</button>
+        <div
+          class="absolute left-0 top-full mt-2 bg-white text-[#2D3073] rounded-md shadow-md w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <a href="financial-calculators.html" class="block px-4 py-2 hover:bg-gray-100">Financial
+            Calculators</a>
+          <a href="investor-education.html" class="block px-4 py-2 hover:bg-gray-100">Investor Education</a>
+        </div>
+      </div>
+
+      <a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a>
+      <a href="#" class="hover:text-[#AEF2CC]">Contact Us</a>
+    </div>
+
+    <!-- Dropdown Menu (Mobile) -->
+    <div id="dropdown-menu" class="absolute top-16 left-0 w-full bg-[#2D3073] hidden md:hidden z-40">
+      <ul class="space-y-4 py-4 px-6 text-white">
+        <li><a href="index.html" class="hover:text-[#AEF2CC]">Home</a></li>
+        <li><a href="about-us.html" class="hover:text-[#AEF2CC]">About Us</a></li>
+        <li><a href="what-we-do.html" class="hover:text-[#AEF2CC]">What We Do</a></li>
+        <li><a href="kyc.html" class="hover:text-[#AEF2CC]">KYC</a></li>
+
+        <!-- Mobile Resources Dropdown Toggle -->
+        <li>
+          <button id="resources-toggle" class="w-full text-left hover:text-[#AEF2CC]">Resources</button>
+          <ul id="mobile-resources" class="pl-4 mt-2 space-y-2 hidden">
+            <li><a href="financial-calculators.html" class="block text-sm hover:text-[#AEF2CC]">Financial
+                Calculators</a></li>
+            <li><a href="investor-education.html" class="block text-sm hover:text-[#AEF2CC]">Investor
+                Education</a></li>
+          </ul>
+        </li>
+
+        <li><a href="faq.html" class="hover:text-[#AEF2CC]">FAQ Page</a></li>
+        <!-- <li><a href="#" class="hover:text-[#AEF2CC]">Contact Us</a></li> -->
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Main Section -->
+
+  <main class="min-h-screen flex items-center justify-center text-gray-800">
+    <div class="calculator-container max-w-5xl w-full mx-4 p-8 my-8 flex flex-col md:flex-row">
+      <!-- Sidebar for Inputs -->
+      <div class="sidebar w-full md:w-1/4 p-6">
+        <h2 class="text-xl font-semibold text-[#2D3073] mb-4">Enter Details</h2>
+        <div class="space-y-6">
+          <div>
+            <label for="monthlyInvestment" class="block text-sm font-medium text-gray-700 mb-2">Monthly Investment
+              (₹)</label>
+            <input type="number" id="monthlyInvestment" min="500" max="1000000" value="10000"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 10000">
+          </div>
+          <div>
+            <label for="returnRate" class="block text-sm font-medium text-gray-700 mb-2">Expected Return Rate (%
+              p.a.)</label>
+            <input type="number" id="returnRate" min="1" max="20" step="0.1" value="12"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 12">
+          </div>
+          <div>
+            <label for="period" class="block text-sm font-medium text-gray-700 mb-2">Investment Period (Years)</label>
+            <input type="number" id="period" min="1" max="30" value="10"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEF2CC]"
+              placeholder="e.g., 10">
+          </div>
+          <button id="calculateBtn"
+            class="w-full px-6 py-3 bg-[#FFD700] text-[#2D3073] font-semibold rounded-lg hover:bg-[#FFC107] transition-colors">Calculate</button>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="w-full md:w-3/4 p-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-[#2D3073] mb-6">SIP Calculator</h1>
+        <p class="text-center text-gray-600 mb-8">Plan your wealth creation with our Systematic Investment Plan
+          calculator.</p>
+
+        <!-- Results -->
+        <div id="result" class="hidden mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="result-card p-6 rounded-lg text-center">
+            <p class="text-sm font-medium">Total Invested</p>
+            <p id="totalInvested" class="text-2xl font-bold mt-2">₹0</p>
+          </div>
+          <div class="result-card p-6 rounded-lg text-center">
+            <p class="text-sm font-medium">Estimated Returns</p>
+            <p id="estimatedReturns" class="text-2xl font-bold mt-2">₹0</p>
+          </div>
+          <div class="result-card p-6 rounded-lg text-center">
+            <p class="text-sm font-medium">Maturity Value</p>
+            <p id="maturityValue" class="text-2xl font-bold mt-2">₹0</p>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div id="chartContainer" class="hidden mt-8">
+          <canvas id="investmentChart"></canvas>
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="text-xs text-gray-500 mt-6 text-center">*Returns are indicative and based on assumed rates. Actual
+          returns may vary.</p>
+      </div>
+    </div>
+
+    <script>
+      // Format number to Indian Rupee
+      function formatINR(number) {
+        return '₹' + number.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+      }
+
+      // Calculate SIP
+      function calculateSIP(monthlyInvestment, annualRate, years) {
+        const months = years * 12;
+        const monthlyRate = annualRate / 12 / 100;
+        const futureValue = monthlyInvestment * (((1 + monthlyRate) ** months - 1) / monthlyRate) * (1 + monthlyRate);
+        const totalInvested = monthlyInvestment * months;
+        const estimatedReturns = futureValue - totalInvested;
+        return { futureValue, totalInvested, estimatedReturns };
+      }
+
+      // Generate chart data
+      function getChartData(monthlyInvestment, annualRate, years) {
+        const labels = [];
+        const investedData = [];
+        const returnsData = [];
+        const monthlyRate = annualRate / 12 / 100;
+
+        for (let year = 0; year <= years; year++) {
+          const months = year * 12;
+          const futureValue = monthlyInvestment * (((1 + monthlyRate) ** months - 1) / monthlyRate) * (1 + monthlyRate);
+          const totalInvested = monthlyInvestment * months;
+          labels.push(`Year ${year}`);
+          investedData.push(totalInvested);
+          returnsData.push(futureValue - totalInvested);
+        }
+
+        return { labels, investedData, returnsData };
+      }
+
+      // Initialize Chart
+      let chartInstance = null;
+      function renderChart(labels, investedData, returnsData) {
+        const ctx = document.getElementById('investmentChart').getContext('2d');
+        if (chartInstance) chartInstance.destroy();
+        chartInstance = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Invested Amount',
+                data: investedData,
+                backgroundColor: '#2D3073',
+              },
+              {
+                label: 'Estimated Returns',
+                data: returnsData,
+                backgroundColor: '#AEF2CC',
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            scales: {
+              x: { stacked: true },
+              y: {
+                stacked: true,
+                beginAtZero: true,
+                ticks: {
+                  callback: function (value) {
+                    return '₹' + value.toLocaleString('en-IN');
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: { position: 'top' },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return `${context.dataset.label}: ₹${context.parsed.y.toLocaleString('en-IN')}`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      // Handle Calculate Button
+      document.getElementById('calculateBtn').addEventListener('click', () => {
+        const monthlyInvestment = parseFloat(document.getElementById('monthlyInvestment').value);
+        const returnRate = parseFloat(document.getElementById('returnRate').value);
+        const period = parseInt(document.getElementById('period').value);
+
+        // Input Validation
+        if (isNaN(monthlyInvestment) || monthlyInvestment < 500 || monthlyInvestment > 1000000) {
+          alert('Please enter a monthly investment between ₹500 and ₹10,00,000.');
+          return;
+        }
+        if (isNaN(returnRate) || returnRate < 1 || returnRate > 20) {
+          alert('Please enter a return rate between 1% and 20%.');
+          return;
+        }
+        if (isNaN(period) || period < 1 || period > 30) {
+          alert('Please enter an investment period between 1 and 30 years.');
+          return;
+        }
+
+        // Calculate and Display Results
+        const { futureValue, totalInvested, estimatedReturns } = calculateSIP(monthlyInvestment, returnRate, period);
+        document.getElementById('totalInvested').textContent = formatINR(totalInvested);
+        document.getElementById('estimatedReturns').textContent = formatINR(estimatedReturns);
+        document.getElementById('maturityValue').textContent = formatINR(futureValue);
+        document.getElementById('result').classList.remove('hidden');
+
+        // Smooth scroll to results in mobile view (<768px)
+        if (window.innerWidth < 768) {
+          document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Render Chart
+        const { labels, investedData, returnsData } = getChartData(monthlyInvestment, returnRate, period);
+        renderChart(labels, investedData, returnsData);
+        document.getElementById('chartContainer').classList.remove('hidden');
+      });
+    </script>
+  </main>
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="bg-[#2D3073] text-white text-xs md:text-sm px-6 py-8 mt-16">
+    <div class="max-w-7xl mx-auto space-y-4">
+      <p>
+        <strong>Risk Factors:</strong> Investments in mutual funds are subject to market risks. Read all
+        scheme-related documents carefully before investing.
+        Mutual fund schemes do not assure or guarantee any returns. Past performances may or may not be
+        sustained in the future. There is no guarantee that the investment objective of any suggested scheme
+        shall be achieved.
+        All existing and prospective investors are advised to evaluate the exit loads and cost structures (TER)
+        applicable at the time of investment.
+        We deal in regular plans only and earn a trailing commission, disclosed at the time of investment.
+        Direct plans with lower expense ratios are available but we do not deal in them.
+      </p>
+
+      <p>
+        <strong>AMFI Registered Mutual Fund Distributor</strong> | ARN-324331 | Validity: 13.03.2028
+      </p>
+
+      <p>
+        For inquiries or complaints, please email us at <a href="mailto:support@zenvest.com"
+          class="underline hover:text-[#AEF2CC]">support@zenvest.com</a>
+      </p>
+
+      <p class="text-center text-gray-300 text-xs pt-4 border-t border-[#AEF2CC]">
+        &copy; 2025 Zenvest Financial Services LLP. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Script to toggle mobile dropdown menu -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    const resourcesToggle = document.getElementById('resources-toggle');
+    const mobileResources = document.getElementById('mobile-resources');
+
+    // Toggle entire mobile menu
+    menuBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+    });
+
+    // Toggle mobile Resources submenu
+    resourcesToggle.addEventListener('click', () => {
+      mobileResources.classList.toggle('hidden');
+    });
+  </script>
+
+
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-20 right-6 z-50">
+        <a href="https://wa.me/919663175538?text=Hello%2C%20I%27m%20interested%20in%20Zenvest%20services"
+            target="_blank"
+            class="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-[#AEF2CC] text-[#2D3073] rounded-full shadow-lg hover:bg-[#FFD700] transition-colors">
+            <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+        </a>
+    </div>
+</body>
+
+</html>
